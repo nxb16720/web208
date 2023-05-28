@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Update product</h1>
+    <form (ngSubmit)="onHandleSubmit()">
+        <div class="mb-3">
+            <input type="text" [(ngModel)]="product.name" name="name" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input type="number" [(ngModel)]="product.price" name="price" class="form-control">
+        </div>
+        <div class="mb-3">
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</div>
