@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -13,7 +13,7 @@ export class UpdateProductComponent {
     name: "",
     price: 0
   }
-  constructor(private productService: ProductService, private router: ActivatedRoute) {
+  constructor(private productService: ProductService, private router: ActivatedRoute, private rt: Router) {
     this.router.paramMap.subscribe(param => {
       const id = Number(param.get('id'))
       this.productService.getProduct(id).subscribe((data) => {
@@ -23,7 +23,9 @@ export class UpdateProductComponent {
   }
 
   onHandleSubmit() {
-    this.productService.udpateProduct(this.product).subscribe(() => console.log("cap nhat thanh cong")
+    this.productService.udpateProduct(this.product).subscribe(() => {
+      this.rt.navigateByUrl('admin')
+    }
     )
   }
 }

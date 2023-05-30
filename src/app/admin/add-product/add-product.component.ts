@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { IProduct } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -12,10 +14,12 @@ export class AddProductComponent {
     name: "",
     price: 0
   }
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private rt: Router) { }
 
   onHandleSubmit() {
-    this.productService.addProduct(this.product).subscribe(() => console.log("them thanh cong")
+    this.productService.addProduct(this.product).subscribe(() => {
+      this.rt.navigateByUrl('admin')
+    }
     )
   }
 }
