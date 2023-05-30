@@ -1,0 +1,13 @@
+<div class="container">
+    <form (ngSubmit)="onHandleSubmit()">
+        <div class="mb-3">
+            <input type="text" [(ngModel)]="product.name" name="name" class="from-control">
+        </div>
+        <div class="mb-3">
+            <input type="number" [(ngModel)]="product.price" name="price" class="from-control">
+        </div>
+        <div class="mb-3">
+            <button type="submit">Add</button>
+        </div>
+    </form>
+</div>
